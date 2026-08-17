@@ -1,0 +1,10 @@
+{
+  "name": "Tarla Takip ve Navigasyon",
+  "description": "Ada/Parsel bilgileriyle tarlaları kaydedip konum, mesafe ve ürün takibi yapabileceğiniz tarım yönetim uygulaması.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

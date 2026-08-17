@@ -1,0 +1,31 @@
+{
+  "entities": {
+    "Field": {
+      "title": "Field",
+      "description": "An agricultural field recorded by the user.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique identifier of the field document" },
+        "ownerId": { "type": "string", "description": "The user ID of the owner" },
+        "name": { "type": "string", "description": "A custom name/alias for the field" },
+        "province": { "type": "string" },
+        "district": { "type": "string" },
+        "neighborhood": { "type": "string" },
+        "ada": { "type": "string" },
+        "parsel": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "cropType": { "type": "string", "enum": ["corn", "wheat", "sunflower", "cotton", "sugar_beet", "other"] },
+        "createdAt": { "type": "number", "description": "Timestamp when the field was added" },
+        "updatedAt": { "type": "number", "description": "Timestamp when the field was last updated" }
+      },
+      "required": ["uid", "ownerId", "latitude", "longitude", "cropType", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/fields/{fieldId}": {
+      "schema": { "$ref": "Field" },
+      "description": "Fields registered by the user."
+    }
+  }
+}

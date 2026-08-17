@@ -1,0 +1,55 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 3. Primitive Definition
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isSignedIn() { return request.auth != null; }
+
+    function isValidField(data) {
+      return data.keys().hasAll(['ownerId', 'latitude', 'longitude', 'cropType', 'createdAt', 'updatedAt']) &&
+             data.size() <= 13 &&
+             ((request.auth != null && data.ownerId == request.auth.uid) || (data.ownerId is string && data.ownerId.matches('^group_.*'))) &&
+             data.latitude is number && 
+             data.longitude is number &&
+             data.cropType is string && data.cropType.size() <= 50 &&
+             data.createdAt is timestamp &&
+             data.updatedAt is timestamp &&
+             data.get('name', '') is string && data.get('name', '').size() <= 100 &&
+             data.get('province', '') is string && data.get('province', '').size() <= 100 &&
+             data.get('district', '') is string && data.get('district', '').size() <= 100 &&
+             data.get('neighborhood', '') is string && data.get('neighborhood', '').size() <= 100 &&
+             data.get('ada', '') is string && data.get('ada', '').size() <= 20 &&
+             data.get('parsel', '') is string && data.get('parsel', '').size() <= 20 &&
+             (data.get('polygon', null) == null || (data.get('polygon', null) is string && data.get('polygon', null).size() <= 1000000));
+    }
+
+    match /fields/{fieldId} {
+      allow read, write: if true;
+    }
+    match /devices/{deviceId} {
+      allow read, write: if true;
+    }
+    
+    match /tasks/{taskId} {
+      allow read, write: if true;
+    }
+
+    match /calls/{callId} {
+      allow read, write: if true;
+      match /{document=**} {
+        allow read, write: if true;
+      }
+    }
+    
+    match /remote_touches/{touchId} {
+      allow read, write: if true;
+    }
+  }
+}

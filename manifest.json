@@ -1,0 +1,16 @@
+{
+  "short_name": "TarlaTakip",
+  "name": "Tarla Takip - Hassas Tarım & Dümenleme",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/8207/8207221.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "display": "standalone",
+  "orientation": "any"
+}
