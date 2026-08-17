@@ -1,16 +1,21 @@
 {
-  "short_name": "TarlaTakip",
-  "name": "Tarla Takip - Hassas Tarım & Dümenleme",
+  "name": "Tarla Takip",
+  "short_name": "Tarla Takip",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#047857",
+  "description": "Tarlalarınızı çizerek ve izleyerek takip edin.",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/8207/8207221.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 2h10l5 22H2L7 2z'/%3E%3Cpath d='M12 2v22'/%3E%3Cpath d='M7 22l1-11'/%3E%3Cpath d='M17 22l-1-11'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 2h10l5 22H2L7 2z'/%3E%3Cpath d='M12 2v22'/%3E%3Cpath d='M7 22l1-11'/%3E%3Cpath d='M17 22l-1-11'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
     }
-  ],
-  "start_url": "./index.html",
-  "background_color": "#09090b",
-  "theme_color": "#09090b",
-  "display": "standalone",
-  "orientation": "any"
+  ]
 }
